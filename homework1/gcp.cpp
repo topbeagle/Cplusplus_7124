@@ -12,7 +12,7 @@ using namespace std;
 
 class Gcd {
 	public:
-		int x, y,result;
+		int x, y;
 
 		Gcd(int x, int y) :x(x), y(y) {}
 	
