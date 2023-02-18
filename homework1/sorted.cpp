@@ -7,11 +7,12 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <algorithm>
 
 
 using namespace std;
 
-class random {
+class ranDom {
 	private:
 		int arr_size = 10;
 		int limit = 100;
@@ -36,7 +37,7 @@ class random {
 
 class ascTest {
 	public:
-		random Ra;
+		ranDom Ra;
 
 		int* unsort_arr;
 		int* sorted_arr;
