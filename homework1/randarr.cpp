@@ -3,10 +3,11 @@
 
 class myrand {
 	public:
-		int size = 10;
-		int arr[size];
+		static const int arrsize = 10;
+		int arr[arrsize] = {0};
 
-		int* randcalc(int arr[];int size) {
+		int* randcalc(int arr[];int arrsize) {
+			cout << "test" << std::endl; 
 
 		return arr;
 		}
