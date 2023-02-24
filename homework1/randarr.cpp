@@ -19,14 +19,21 @@ class myrand {
 		int* randcalc(int arr[],int size) {
 			srand(time(0));
 		
-			for( int i = 0;i<size;i++) {
+			for(int i = 0;i<size;i++) {
 				int randomNumber = rand() % 100 +1;
 				arr[i] = randomNumber;
-				cout << arr[i]<< endl;
 			}	
 
 			return arr;
 		}
+
+		void printstuff(int arr[],int size) {
+			for(int i = 0; i<size; i++) {
+			       cout << arr[i] << " ";
+		       	}
+	 		cout << endl;
+		}		
+
 };
 
 
@@ -35,10 +42,13 @@ int main() {
 
 	const int arrsize = 10;
 	int arr[arrsize] = {0};
+	int* randarr;
 
 	myrand R(arr,arrsize);
 
-	R.randcalc(arr,arrsize);
+	randarr = R.randcalc(arr,arrsize);
+
+	R.printstuff(randarr,arrsize);
 
 
 	return 0;
