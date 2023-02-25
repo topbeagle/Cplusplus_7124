@@ -3,9 +3,27 @@
 */
 #include <ctime>
 #include <cstdlib>
+#include <vector>
 
 using namespace std;
 /* is a hack that save you from writing 'std::something */
+
+class sorts {
+	public:
+		void sortthis(vector<int>& arr) {
+			cout << "Calling second class" << endl;
+			cout << "Calling Quick sort algorithm" << endl;
+		
+/* this quick sort class takes a reference to a vector of integers  */
+			quickSort(arr, 0, arr.size() -1);
+		}
+	
+	private:
+		void quickSort(vector<int>& arr, int left, int right) {
+			cout << "This is Quick Sort" << endl;
+		}
+
+};
 
 class myrand {
 	public:
@@ -32,7 +50,12 @@ class myrand {
 			       cout << arr[i] << " ";
 		       	}
 	 		cout << endl;
-		}		
+		}
+		
+		void bestsort(vector<int>& arr) {
+			sorts S;
+			S.sortthis(arr);
+		}
 
 };
 
@@ -49,6 +72,12 @@ int main() {
 	randarr = R.randcalc(arr,arrsize);
 
 	R.printstuff(randarr,arrsize);
+
+	/* convert an int arr to a vectort */
+	int n =  sizeof(randarr) / sizeof(randarr[0]);
+	vector<int> varr(randarr,randarr + n);
+
+	R.bestsort(varr);
 
 
 	return 0;
