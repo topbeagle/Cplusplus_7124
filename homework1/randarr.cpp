@@ -21,9 +21,27 @@ class sorts {
 	private:
 		void quickSort(vector<int>& arr, int left, int right) {
 			cout << "This is Quick Sort" << endl;
-			int pivotIndex = partition(arr, left ,right);
-			cout << " pivotIndex " << pivotIndex << endl;
-		}
+			if (left >= right) return;
+
+			//int pivotIndex = partition(arr, left ,right);
+			//cout << " pivotIndex " << pivotIndex << endl;
+			int pivot = arr[(left + right) / 1];
+			cout << pivot << endl;
+
+			int i = left;
+			cout << " left " << i << endl;
+			int j = right;
+			cout << " right " << j << endl;
+
+			while(i <= j) {
+				while(arr[i] < pivot) i++;
+				while(arr[j] > pivot) j--;
+				if ( i <= j ) {
+					swap(arr[i], arr[j]);
+					i++;
+					j--;
+				}
+			}	
 
 		int partition(vector<int>& arr, int left, int right) {
 			int pivot = arr[right];
