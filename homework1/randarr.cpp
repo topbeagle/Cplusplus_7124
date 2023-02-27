@@ -13,7 +13,7 @@ class sorts {
 		void sortthis(vector<int>& arr) {
 			cout << "Calling second class" << endl;
 			cout << "Calling Quick sort algorithm" << endl;
-		
+			cout << "array size " << arr.size() << endl;
 /* this quick sort class takes a reference to a vector of integers  */
 			quickSort(arr, 0, arr.size() -1);
 		}
@@ -21,34 +21,34 @@ class sorts {
 	private:
 		void quickSort(vector<int>& arr, int left, int right) {
 			cout << "This is Quick Sort" << endl;
-			if (left >= right) return;
-
-			//int pivotIndex = partition(arr, left ,right);
-			//cout << " pivotIndex " << pivotIndex << endl;
-			int pivot = arr[(left + right) / 1];
-			cout << pivot << endl;
-
-			int i = left;
-			cout << " left " << i << endl;
-			int j = right;
-			cout << " right " << j << endl;
-
-			while(i <= j) {
-				while(arr[i] < pivot) i++;
-				while(arr[j] > pivot) j--;
-				if ( i <= j ) {
-					swap(arr[i], arr[j]);
-					i++;
-					j--;
-				}
+			cout << "left " << left << endl;
+			cout << "right " << right << endl;
+			if (left < right ) {
+				int pivotIndex = partition(arr, left ,right);
+				cout << "pivotIndex " << pivotIndex << endl;
+				cout << "left " << left << endl;
+				cout << "right " << right << endl;
+				quickSort(arr, left, pivotIndex -1);
+				quickSort(arr, pivotIndex + 1, right);
 			}	
+		}
 
 		int partition(vector<int>& arr, int left, int right) {
+			cout << "Inside the partition function" << endl;
 			int pivot = arr[right];
 			cout << "pivot " << pivot << endl;
-			int i = left= 1;
+			int i = left - 1;
 			cout << "this is i " << i << endl;
+			for(int j = left; j < right; j++ ) {
+				if (arr[j] < pivot) {
+					i++;
+					swap(arr[i],arr[j]);
+					cout << "arr[i] " << arr[i] << endl;
+					cout << "arr[j] " << arr[j] << endl;
+				}
+			}
 
+			swap(arr[i + 1],arr[right]);
 			return i + 1;
 		}
 
